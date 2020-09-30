@@ -11,11 +11,11 @@ function App() {
       <Router>
         <Home path="/" />
         <Dashboard path="/dashboard" />
-        <Invoice path="invoices/:invoiceId" />
-        {/* colon says that the variable in props is named what is after the colon */}
+        <Invoices path="invoices">
+          <Invoice path=":invoiceId" />
+          {/* colon says that the variable in props is named what is after the colon */}
+        </Invoices>
       </Router>
-      <Link to="invoices/amaze">Invoice amaze</Link>{" "}
-      <Link to="invoices/75">Invoice 75</Link>
     </div>
   );
 }
@@ -35,9 +35,32 @@ const Dashboard = () => (
 );
 
 const Invoice = ({ invoiceId }) => {
+  // useEffect(()=>{
+  //   //api call to
+  //   //localhost:3000/invoices?invoice=invoiceId
+  // },[])
   return (
     <div>
       <h2>Invoice {invoiceId}</h2>
+    </div>
+  );
+};
+
+const Invoices = ({ children }) => {
+  return (
+    <div>
+      <h2>Invoices</h2>
+      <ul>
+        <li>
+          <Link to="amaze">
+            <button>Invoice amaze</button>
+          </Link>{" "}
+        </li>
+        <li>
+          <Link to="75">Invoice 75</Link>
+        </li>
+      </ul>
+      {children}
     </div>
   );
 };
