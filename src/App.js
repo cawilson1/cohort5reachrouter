@@ -12,6 +12,7 @@ function App() {
         <Home path="/" />
         <Dashboard path="/dashboard" />
         <Invoices path="invoices">
+          <InvoicesIndex path="/"></InvoicesIndex>
           <Invoice path=":invoiceId" />
           {/* colon says that the variable in props is named what is after the colon */}
         </Invoices>
@@ -61,6 +62,14 @@ const Invoices = ({ children }) => {
         </li>
       </ul>
       {children}
+    </div>
+  );
+};
+const InvoicesIndex = () => {
+  return (
+    <div>
+      This is the entry page for the invoices. Type a number after the url to
+      get a specific invoice
     </div>
   );
 };
