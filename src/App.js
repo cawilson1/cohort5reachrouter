@@ -11,7 +11,11 @@ function App() {
       <Router>
         <Home path="/" />
         <Dashboard path="/dashboard" />
+        <Invoice path="invoices/:invoiceId" />
+        {/* colon says that the variable in props is named what is after the colon */}
       </Router>
+      <Link to="invoices/amaze">Invoice amaze</Link>{" "}
+      <Link to="invoices/75">Invoice 75</Link>
     </div>
   );
 }
@@ -29,5 +33,13 @@ const Dashboard = () => (
     <h2>Dashboard</h2>
   </div>
 );
+
+const Invoice = ({ invoiceId }) => {
+  return (
+    <div>
+      <h2>Invoice {invoiceId}</h2>
+    </div>
+  );
+};
 
 export default App;
