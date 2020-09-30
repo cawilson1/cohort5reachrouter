@@ -7,8 +7,8 @@ function App() {
       <nav>
         <Link to="/">Home</Link> <Link to="dashboard">Dashboard</Link>
       </nav>
-      Hey I am here
       <Router>
+        <NotFound default />
         <Home path="/" />
         <Dashboard path="/dashboard" />
         <Invoices path="invoices">
@@ -70,6 +70,14 @@ const InvoicesIndex = () => {
     <div>
       This is the entry page for the invoices. Type a number after the url to
       get a specific invoice
+    </div>
+  );
+};
+
+const NotFound = () => {
+  return (
+    <div>
+      Oops, looks like there is nothing here. Do you have the correct url?
     </div>
   );
 };
