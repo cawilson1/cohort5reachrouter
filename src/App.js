@@ -1,12 +1,13 @@
 import React from "react";
 import { Link, Router } from "@reach/router";
+import Navbar from "./components/Navbar";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link> <Link to="dashboard">Dashboard</Link>
-      </nav>
+      <Navbar />
       <Router>
         <NotFound default />
         <Home path="/" />
@@ -17,14 +18,6 @@ function App() {
           {/* colon says that the variable in props is named what is after the colon */}
         </Invoices>
       </Router>
-    </div>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <h2>Welcome</h2>
     </div>
   );
 }
@@ -87,14 +80,6 @@ const InvoicesIndex = () => {
     <div>
       This is the entry page for the invoices. Type a number after the url to
       get a specific invoice
-    </div>
-  );
-};
-
-const NotFound = () => {
-  return (
-    <div>
-      Oops, looks like there is nothing here. Do you have the correct url?
     </div>
   );
 };
